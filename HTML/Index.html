@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="../CSS/general.css" />
     <link rel="stylesheet" href="../CSS/style.css" />
     <link rel="stylesheet" href="../CSS/mediaQueries.css" />
-
-
+    
+    
+    <script  src="../Script.js" ></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
@@ -24,10 +25,15 @@
       nomodule=""
       src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
     ></script>
+    <script  src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js">
+
+    </script>
+
 
     <title>Omnifood</title>
   </head>
   <body>
+
     <div id="header-placeholder"></div>
     <main>
       <div id="hero-placeholder"></div>
@@ -39,38 +45,6 @@
       <div id="cta-placeholder"></div>
     </main>
     <div id="footer-placeholder"></div>
-
-    <!-- <script>
-      // This function fetches an HTML file and injects it into a target element
-      function loadSection(file, elementId) {
-        fetch(file)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.text();
-          })
-          .then((data) => {
-            document.getElementById(elementId).innerHTML = data;
-          })
-          .catch((error) => {
-            console.error(`Could not load section ${file}:`, error);
-            document.getElementById(elementId).innerHTML = `<p style="color:red; text-align:center;">Failed to load content.</p>`
-          });
-      }
-
-      // Load all the sections into their placeholders
-      loadSection('Header.html', 'header-placeholder');
-      loadSection('hero.html', 'hero-placeholder');
-      loadSection('featured.html', 'featured-placeholder');
-      loadSection('how.html', 'how-placeholder');
-      loadSection('meals.html', 'meals-placeholder');
-      loadSection('testimonials.html', 'testimonials-placeholder');
-      loadSection('pricing.html', 'pricing-placeholder');
-      loadSection('cta.html', 'cta-placeholder');
-      loadSection('footer.html', 'footer-placeholder');
-    </script> -->
-        <script src="../Script.js" ></script>
 
   </body>
 </html>
