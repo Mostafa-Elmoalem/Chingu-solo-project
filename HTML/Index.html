@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../CSS/general.css" />
+    <link rel="stylesheet" href="../CSS/style.css" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <title>Omnifood</title>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+    <main>
+      <div id="hero-placeholder"></div>
+      <div id="featured-placeholder"></div>
+      <div id="how-placeholder"></div>
+      <div id="meals-placeholder"></div>
+      <div id="testimonials-placeholder"></div>
+      <div id="pricing-placeholder"></div>
+      <div id="cta-placeholder"></div>
+    </main>
+    <div id="footer-placeholder"></div>
+
+    <script>
+      // This function fetches an HTML file and injects it into a target element
+      function loadSection(file, elementId) {
+        fetch(file)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text();
+          })
+          .then((data) => {
+            document.getElementById(elementId).innerHTML = data;
+          })
+          .catch((error) => {
+            console.error(`Could not load section ${file}:`, error);
+            document.getElementById(elementId).innerHTML = `<p style="color:red; text-align:center;">Failed to load content.</p>`
+          });
+      }
+
+      // Load all the sections into their placeholders
+      loadSection('Header.html', 'header-placeholder');
+      loadSection('hero.html', 'hero-placeholder');
+      loadSection('featured.html', 'featured-placeholder');
+      loadSection('how.html', 'how-placeholder');
+      loadSection('meals.html', 'meals-placeholder');
+      loadSection('testimonials.html', 'testimonials-placeholder');
+      loadSection('pricing.html', 'pricing-placeholder');
+      loadSection('cta.html', 'cta-placeholder');
+      loadSection('footer.html', 'footer-placeholder');
+    </script>
+  </body>
+</html>
