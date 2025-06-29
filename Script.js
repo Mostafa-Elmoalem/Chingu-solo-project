@@ -18,15 +18,45 @@ function loadSection(file, elementId, callback) {
 loadSection('Header.html', 'header-placeholder', () => {
   const btnNavEl = document.querySelector(".btn-mobile-nav");
   const headerEl = document.querySelector(".header");
+  const chooseEl = document.querySelectorAll(".main-nav-link")
 
   if (btnNavEl && headerEl) {
     btnNavEl.addEventListener('click', function () {
       headerEl.classList.toggle("nav-open");
     });
   }
+  if(chooseEl && headerEl){
+    chooseEl.forEach(link=> {
+      link.addEventListener('click',function(){
+      headerEl.classList.toggle("nav-open")})
+    })
+  }
+})
+
+
+// smoth scrool for safary
+const allLinks = document.querySelectorAll("a:link");
+
+allLinks.forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    const href = link.getAttribute("href");
+
+    if (href === "#")
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
+    if (href !== "#" && href.startsWith("#")) {
+      const sectionEl = document.querySelector(href);
+      sectionEl.scrollIntoView({ behavior: "smooth" });
+    }
 });
 
-// تحميل باقي الأقسام
+
+
+// for html files sections
 loadSection('hero.html', 'hero-placeholder');
 loadSection('featured.html', 'featured-placeholder');
 loadSection('how.html', 'how-placeholder');
